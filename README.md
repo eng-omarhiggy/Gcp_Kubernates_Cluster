@@ -18,11 +18,15 @@ $ terraform apply
 $ docker build -t REPOSITRYNAME:TAG
 $ docker push REPOSITRYNAME:TAG
 ```
-
+- [Run app locally ](#Run)
+```bash
+$ docker run -d --network=host redis 
+$ docker run --network=host python-redis-py
+```
 # Create deployment using kubectl
 - [Insert you image in deployment.yaml  ](#run-terraform-command-with-terrafom)
 - [From your bastion  ](#run-terraform-command-with-terrafom)
-- [Fun kubcetl command ](#run-terraform-command-with-terrafom)
+- [Run kubcetl command ](#run-terraform-command-with-terrafom)
 ```bash
 $ kubectl apply -f deployment.yaml
 ```
