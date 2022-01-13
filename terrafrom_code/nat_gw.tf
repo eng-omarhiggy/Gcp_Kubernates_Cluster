@@ -3,6 +3,10 @@
 resource "google_compute_router" "router" {
   name    = "nat-router"
   network = google_compute_network.main_vpc.id
+  region  = "us-central1"
+  bgp {
+    asn = 64514
+  }
 }
 
 
@@ -20,13 +24,17 @@ resource "google_compute_router_nat" "nat" {
 }
 # firewall allow Iap access only 
 resource "google_compute_firewall" "allow_iap" {
+  project = "higgy-ekss"
   name    = "allow-iap"
   network = google_compute_network.main_vpc.id
 
   allow {
     protocol = "tcp"
-    ports    = ["22"]
+    ports    = ["80", "22", "443"]
   }
+
   source_ranges = ["35.235.240.0/20"]
 
 }
+
+

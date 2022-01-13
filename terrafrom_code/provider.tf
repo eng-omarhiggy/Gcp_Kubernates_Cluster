@@ -1,4 +1,4 @@
 provider "google" {
-  project = "higgy-eks"
-  region  = "us-central1"
+  project = "higgy-ekss"
+  region  = "us-central1-a"
 }
